@@ -39,39 +39,41 @@ const TodoList = () => {
   }
   return (
     <div>
-      <div className="mt-5">
-        {!show ? <Form /> : <Edit id={id} />}
-        {Object.keys(todos).length === 0 && (
-          <p className="alert alert-info">No Todos at the moment</p>
-        )}
-        <table className="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Title</th>
-              <th scope="col">ToDo</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {todos.map(({ title, description, _id, color }, index) => {
-              return (
-                <tr key={index}>
-                  <Item
-                    onEditToDo={onEditToDo}
-                    key={index}
-                    title={title}
-                    description={description}
-                    color={color}
-                    index={index}
-                    id={_id}
-                  />
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className="mt-5 d-flex justify-content-center">
+        <div className="w-75">
+          {!show ? <Form /> : <Edit id={id} />}
+          {Object.keys(todos).length === 0 && (
+            <p className="alert alert-info">No Todos at the moment</p>
+          )}
+          <table className="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">ToDo</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {todos.map(({ title, description, _id, color }, index) => {
+                return (
+                  <tr key={index}>
+                    <Item
+                      onEditToDo={onEditToDo}
+                      key={index}
+                      title={title}
+                      description={description}
+                      color={color}
+                      index={index}
+                      id={_id}
+                    />
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -16,11 +16,11 @@ const Item = ({ title, description, index, color, id, onEditToDo }) => {
     del(id);
     dispatch(removeToDo(id));
     count++;
-    console.log(count);
+    // console.log(count);
   };
 
   useEffect(() => {
-    console.log("render");
+    // console.log("render");
   }, [count]);
 
   return (

@@ -16,11 +16,10 @@ const Form = (props) => {
     post(data);
     dispatch(addToDo(data));
     count++;
-    console.log(count);
   };
 
   useEffect(() => {
-    console.log("render");
+    // console.log("render");
   }, [count]);
 
   return (

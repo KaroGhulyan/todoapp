@@ -13,8 +13,8 @@ const Edit = ({ id }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-      console.log(id)
-      console.log(data)
+    console.log(id);
+    console.log(data);
     put(id, data);
     dispatch(upgradeToDo({ id, data }));
   };
@@ -36,12 +36,10 @@ const Edit = ({ id }) => {
         placeholder="Color"
         ref={register({ required: true })}
       />
-      {/* <input type="color"  name="head" value="#e66465"></input> */}
       {errors.exampleRequired && <span>This field is required</span>}
       <button type="submit" className="btn btn-success btn-block">
         Edit
       </button>
-      {/* <input type="submit" /> */}
     </form>
   );
 };
