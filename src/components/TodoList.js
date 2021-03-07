@@ -50,7 +50,7 @@ const TodoList = () => {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
-                <th scope="col">ToDo</th>
+                <th scope="col">To Do</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
               </tr>
