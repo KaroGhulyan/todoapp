@@ -40,7 +40,7 @@ const TodoList = () => {
   return (
     <div>
       <div className="mt-5 d-flex justify-content-center">
-        <div className="w-75">
+        <div className="col-8">
           {!show ? <Form /> : <Edit id={id} />}
           {Object.keys(todos).length === 0 && (
             <p className="alert alert-info">No Todos at the moment</p>
