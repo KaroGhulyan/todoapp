@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 const initialState = {
   todos: [],
   loading: true,
@@ -31,12 +29,7 @@ const reducer = (state = initialState, action) => {
       const { id: itemId, data: newData } = action.payload;
       const index = state.todos.findIndex((todo) => todo._id === itemId);
       let todo = state.todos.find((todo) => todo._id === itemId);
-      console.log(todo, "Prev");
       todo = { ...newData };
-      console.log(todo, "Now");
-
-      // todo
-
       return {
         ...state,
         todos: [

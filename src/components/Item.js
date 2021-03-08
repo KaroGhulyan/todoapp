@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { removeToDo } from "../actions";
@@ -9,19 +9,12 @@ const Item = ({ title, description, index, color, id, onEditToDo }) => {
   const trash = <FontAwesomeIcon icon={faTrash} />;
   const edit = <FontAwesomeIcon icon={faEdit} />;
   const dispatch = useDispatch();
-  let [count, setCount] = useState(0);
 
   const { del } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   const onDeleteToDo = (id) => {
     del(id);
     dispatch(removeToDo(id));
-    count++;
-    // console.log(count);
   };
-
-  useEffect(() => {
-    // console.log("render");
-  }, [count]);
 
   return (
     <>

@@ -22,14 +22,9 @@ const TodoList = () => {
     fetchTodos(dispatch, getAll);
   }, []);
 
-  useEffect(() => {
-    // fetchTodos(dispatch, getAll);
-  }, [show]);
-
   const onEditToDo = (id) => {
     setShow(true);
     setId(id);
-    // show = true;
   };
   const onChangeSubmit = () => {
     setShow(false);

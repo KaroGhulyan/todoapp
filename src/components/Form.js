@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useFetch from "../hooks/useFetch";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToDo } from "../actions";
 
 import "../style.css";
 
-const Form = (props) => {
+const Form = () => {
   const { register, handleSubmit, watch, errors } = useForm();
   const { post } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   let [count, setCount] = useState(0);
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data)
+    console.log(data);
     post(data);
     dispatch(addToDo(data));
     count++;

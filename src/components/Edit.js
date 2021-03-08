@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import useFetch from "../hooks/useFetch";
-import { useSelector, useDispatch, connect } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { upgradeToDo } from "../actions";
 
 import "../style.css";
