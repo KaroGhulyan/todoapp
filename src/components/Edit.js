@@ -6,17 +6,16 @@ import { upgradeToDo } from "../actions";
 
 import "../style.css";
 
-const Edit = ({ id }) => {
+const Edit = ({ id, onChangeToSubmit }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const { put } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   let [count, setCount] = useState(0);
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(id);
-    console.log(data);
     put(id, data);
     dispatch(upgradeToDo({ id, data }));
+    onChangeToSubmit();
   };
 
   useEffect(() => {

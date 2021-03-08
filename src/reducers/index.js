@@ -39,7 +39,11 @@ const reducer = (state = initialState, action) => {
 
       return {
         ...state,
-        todos: [{ ...todo }],
+        todos: [
+          ...state.todos.slice(0, index),
+          newData,
+          ...state.todos.slice(index + 1),
+        ],
         loading: false,
         error: null,
       };

@@ -31,6 +31,9 @@ const TodoList = () => {
     setId(id);
     // show = true;
   };
+  const onChangeSubmit = () => {
+    setShow(false);
+  };
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -41,7 +44,11 @@ const TodoList = () => {
     <div>
       <div className="mt-5 d-flex justify-content-center">
         <div className="col-8">
-          {!show ? <Form /> : <Edit id={id} />}
+          {!show ? (
+            <Form />
+          ) : (
+            <Edit id={id} onChangeToSubmit={onChangeSubmit} />
+          )}
           {Object.keys(todos).length === 0 && (
             <p className="alert alert-info">No Todos at the moment</p>
           )}
