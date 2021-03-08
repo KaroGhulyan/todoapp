@@ -13,6 +13,7 @@ const Form = (props) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    console.log(data)
     post(data);
     dispatch(addToDo(data));
     count++;
@@ -30,12 +31,18 @@ const Form = (props) => {
         placeholder="Description"
         ref={register({ required: true })}
       />
-      <input
+      {/* <input
         name="color"
         placeholder="Color"
         ref={register({ required: true })}
+      /> */}
+      <input
+        type="color"
+        name="color"
+        defaultValue="#e66465"
+        ref={register({ required: true })}
       />
-      {/* <input type="color"  name="head" value="#e66465"></input> */}
+
       {errors.exampleRequired && <span>This field is required</span>}
       <input type="submit" />
     </form>

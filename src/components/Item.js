@@ -25,17 +25,21 @@ const Item = ({ title, description, index, color, id, onEditToDo }) => {
 
   return (
     <>
-      <th scope="row">{index + 1}</th>
-      <td>{title}</td>
-      <td>{description}</td>
-      <td>
-        <button className="btn btn-danger" onClick={() => onDeleteToDo(id)}>
-          {trash}
-        </button>
-      </td>
-      <td>
-        <button className="btn  btn-success"  onClick={() => onEditToDo(id)}>{edit}</button>
-      </td>
+      <tr key={index} style={{ backgroundColor: color }}>
+        <th scope="row">{index + 1}</th>
+        <td>{title}</td>
+        <td>{description}</td>
+        <td>
+          <button className="btn btn-danger" onClick={() => onDeleteToDo(id)}>
+            {trash}
+          </button>
+        </td>
+        <td>
+          <button className="btn  btn-success" onClick={() => onEditToDo(id)}>
+            {edit}
+          </button>
+        </td>
+      </tr>
     </>
   );
 };

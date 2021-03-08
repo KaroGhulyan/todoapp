@@ -65,17 +65,15 @@ const TodoList = () => {
             <tbody>
               {todos.map(({ title, description, _id, color }, index) => {
                 return (
-                  <tr key={index}>
-                    <Item
-                      onEditToDo={onEditToDo}
-                      key={index}
-                      title={title}
-                      description={description}
-                      color={color}
-                      index={index}
-                      id={_id}
-                    />
-                  </tr>
+                  <Item
+                    onEditToDo={onEditToDo}
+                    key={index}
+                    title={title}
+                    description={description}
+                    color={color}
+                    index={index}
+                    id={_id}
+                  />
                 );
               })}
             </tbody>

@@ -9,7 +9,6 @@ import "../style.css";
 const Edit = ({ id, onChangeToSubmit }) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const { put } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
-  let [count, setCount] = useState(0);
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
@@ -17,10 +16,6 @@ const Edit = ({ id, onChangeToSubmit }) => {
     dispatch(upgradeToDo({ id, data }));
     onChangeToSubmit();
   };
-
-  useEffect(() => {
-    console.log("render");
-  }, [count]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,12 +26,13 @@ const Edit = ({ id, onChangeToSubmit }) => {
         ref={register({ required: true })}
       />
       <input
+        type="color"
         name="color"
-        placeholder="Color"
+        defaultValue="#e66465"
         ref={register({ required: true })}
       />
       {errors.exampleRequired && <span>This field is required</span>}
-      <button type="submit" className="btn btn-success btn-block">
+      <button type="submit" className="btn btn-block">
         Edit
       </button>
     </form>
