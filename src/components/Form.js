@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useFetch from "../hooks/useFetch";
 import { useDispatch } from "react-redux";
 import { addToDo } from "../actions";
+import { v4 as uuidv4 } from "uuid";
 
 import "../style.css";
 
@@ -12,6 +13,7 @@ const Form = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
+    data._id = uuidv4();
     post(data);
     dispatch(addToDo(data));
   };

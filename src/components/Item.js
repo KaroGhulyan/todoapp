@@ -12,8 +12,8 @@ const Item = ({ title, description, index, color, id, onEditToDo }) => {
 
   const { del } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   const onDeleteToDo = (id) => {
-    del(id);
     dispatch(removeToDo(id));
+    del(id);
   };
 
   return (
