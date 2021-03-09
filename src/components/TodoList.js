@@ -17,11 +17,9 @@ const TodoList = () => {
   let todos = useSelector((state) => state.todos);
   let loading = useSelector((state) => state.loading);
   let error = useSelector((state) => state.error);
-  // console.log(loading);
-  // console.log(todos);
+
 
   useEffect(() => {
-    console.log('DidMount')
     fetchTodos(dispatch, getAll);
   }, []);
 
