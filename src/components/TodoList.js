@@ -21,7 +21,7 @@ const TodoList = () => {
 
   useEffect(() => {
     fetchTodos(dispatch, getAll);
-  }, []);
+  }, [fetchTodos]);
 
   const onEditToDo = (id) => {
     setShow(true);
