@@ -17,8 +17,11 @@ const TodoList = () => {
   let todos = useSelector((state) => state.todos);
   let loading = useSelector((state) => state.loading);
   let error = useSelector((state) => state.error);
+  // console.log(loading);
+  // console.log(todos);
 
   useEffect(() => {
+    console.log('DidMount')
     fetchTodos(dispatch, getAll);
   }, []);
 
@@ -58,19 +61,21 @@ const TodoList = () => {
               </tr>
             </thead>
             <tbody>
-              {todos.map(({ title, description, _id, color }, index) => {
-                return (
-                  <Item
-                    onEditToDo={onEditToDo}
-                    key={index}
-                    title={title}
-                    description={description}
-                    color={color}
-                    index={index}
-                    id={_id}
-                  />
-                );
-              })}
+              {todos.length
+                ? todos.map(({ title, description, _id, color }, index) => {
+                    return (
+                      <Item
+                        onEditToDo={onEditToDo}
+                        key={index}
+                        title={title}
+                        description={description}
+                        color={color}
+                        index={index}
+                        id={_id}
+                      />
+                    );
+                  })
+                : null}
             </tbody>
           </table>
         </div>

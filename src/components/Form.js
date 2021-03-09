@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import { useForm } from "react-hook-form";
 import useFetch from "../hooks/useFetch";
 import { useDispatch } from "react-redux";
@@ -14,10 +15,8 @@ const Form = () => {
     "https://todo.eachbase.com/api/KaroGhulyan/todos/"
   );
   const onSubmit = async (data) => {
-    post(data);
-    await getAll().then((data) => {
-      dispatch(addToDo(data[data.length - 1]));
-    });
+    let newData = await post(data);
+    dispatch(addToDo(newData));
   };
 
   return (
