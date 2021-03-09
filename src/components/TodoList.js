@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTodos,todosError } from "../actions/index";
+import { fetchTodos } from "../actions";
 import useFetch from "../hooks/useFetch";
 import Item from "./Item";
 import Form from "./Form";
@@ -18,16 +18,9 @@ const TodoList = () => {
   let loading = useSelector((state) => state.loading);
   let error = useSelector((state) => state.error);
 
-
   useEffect(() => {
-    getAll()
-    .then((data) => {
-      dispatch(getTodos(data));
-    })
-    .catch((e) => {
-      dispatch(todosError(e));
-    });
-  }, []);
+    fetchTodos(dispatch, getAll);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onEditToDo = (id) => {
     setShow(true);
