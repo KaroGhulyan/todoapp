@@ -7,7 +7,7 @@ import { upgradeToDo } from "../actions";
 import "../style.css";
 
 const Edit = ({ id, onChangeToSubmit }) => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { put } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   const dispatch = useDispatch();
 

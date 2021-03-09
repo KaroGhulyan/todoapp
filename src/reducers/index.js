@@ -28,8 +28,6 @@ const reducer = (state = initialState, action) => {
     case "EDIT_TODO":
       const { id: itemId, data: newData } = action.payload;
       const index = state.todos.findIndex((todo) => todo._id === itemId);
-      let todo = state.todos.find((todo) => todo._id === itemId);
-      todo = { ...newData };
       return {
         ...state,
         todos: [

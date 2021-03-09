@@ -7,7 +7,7 @@ import { addToDo } from "../actions";
 import "../style.css";
 
 const Form = () => {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { post } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   const dispatch = useDispatch();
   const { getAll } = useFetch(
