@@ -11,9 +11,7 @@ const Form = () => {
   const { register, handleSubmit, errors } = useForm();
   const { post } = useFetch("https://todo.eachbase.com/api/KaroGhulyan/todos");
   const dispatch = useDispatch();
-  const { getAll } = useFetch(
-    "https://todo.eachbase.com/api/KaroGhulyan/todos/"
-  );
+
   const onSubmit = async (data) => {
     let newData = await post(data);
     dispatch(addToDo(newData));
