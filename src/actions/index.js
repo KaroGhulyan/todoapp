@@ -1,5 +1,3 @@
-import React, { useCallback } from "react";
-
 const getTodos = (todos) => {
   return { type: "FETCH_TODOS_SUCCESS", payload: todos };
 };
