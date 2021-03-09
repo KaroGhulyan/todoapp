@@ -25,4 +25,4 @@ const fetchTodos = (dispatch, getAll) => {
       dispatch(todosError(e));
     });
 };
-export { fetchTodos, addToDo, removeToDo, removeAllToDos, upgradeToDo };
+export { fetchTodos, addToDo, removeToDo, removeAllToDos, upgradeToDo,getTodos,todosError };

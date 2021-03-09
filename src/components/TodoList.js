@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTodos } from "../actions";
+import { getTodos,todosError } from "../actions/index";
 import useFetch from "../hooks/useFetch";
 import Item from "./Item";
 import Form from "./Form";
@@ -20,8 +20,14 @@ const TodoList = () => {
 
 
   useEffect(() => {
-    fetchTodos(dispatch, getAll);
-  }, [fetchTodos]);
+    getAll()
+    .then((data) => {
+      dispatch(getTodos(data));
+    })
+    .catch((e) => {
+      dispatch(todosError(e));
+    });
+  }, []);
 
   const onEditToDo = (id) => {
     setShow(true);
